@@ -1,4 +1,12 @@
 # Archivos a ignorar en el repositorio
 
+.gitIgnore
+README.TXT
+*.class
+*.ctxt 
+*.blueJ
+
 
 # Carpetas a ignorar en el repositorio
+Colecciones/
+Colecciones-copy/
