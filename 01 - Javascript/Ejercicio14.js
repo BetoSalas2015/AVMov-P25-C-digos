@@ -9,7 +9,7 @@ Persona.prototype.getFullName = function() {
     return this.nombre + " " + this.apellido;
 }
 
-var juan =  Persona("Juanito", "Pérez");
+var juan =  new Persona("Juanito", "Pérez");
 var pedro = new Persona("Pedrito", "López");
 
 var test = {};
