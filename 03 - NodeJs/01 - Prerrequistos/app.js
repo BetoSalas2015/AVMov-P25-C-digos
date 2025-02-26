@@ -1,15 +1,42 @@
-//  Funciones flecha 
+// callback-Hell
+const empleados = [
+    {
+        id: 1,
+        nombre: "Roberto"
+    },
+    {
+        id: 2,
+        nombre: "Jorge"
+    },
+    {
+        id: 3,
+        nombre: "Pedro"
+    }
+];
+const salarios = [
+    {
+        id: 1,
+        salario: 1000
+    },
+    {
+        id: 2,
+        salario: 1200
+    }
+];
 
-function sumar(a, b) {
-    return a + b;
-}
+const getEmpleado = (id, callback) => {
+    const empleado = empleados.find( (e) => e.id === id );
+    if( empleado )
+        callback(null, empleado ) ;
+    else
+        callback( `El Empleado con id ${ id } no existe` );
+};
 
-let sumar1 = (a, b) => {
-    return a + b;
-} 
+getEmpleado(4, (err, empleado) => {
+    if(err) {
+       return console.log(err);
+    }
+    console.log(empleado);
+    
+});
 
-let sumar2 = (a, b) =>  a + b;
-
-console.log(sumar(2,3));
-console.log(sumar1(2,3));
-console.log(sumar2(2,3));
