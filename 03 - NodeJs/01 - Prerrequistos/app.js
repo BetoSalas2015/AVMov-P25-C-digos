@@ -24,38 +24,27 @@ const salarios = [
     }
 ];
 
-let id = 20;
+let id = 2;
 
-const getEmpleado = (id, callback) => {
-    const empleado = empleados.find( (e) => e.id === id )?.nombre;
-    if( empleado )
-        callback(null, empleado ) ;
-    else
-        callback( `El Empleado con id ${ id } no existe` );
+const getEmpleado = (id) => {
+    return promesa = new Promise( (resolve, reject) => {
+        const empleado = empleados.find( (e) => e.id === id )?.nombre;
+        (empleado) ? resolve( empleado ) : reject( `El Empleado con id ${ id } no existe` );
+ 
+        } ); // de la promesa
 };
 
-
-
-const getSalario = (id, callback) => {
-    const salario = salarios.find( (e) => e.id === id )?.salario;
-    if(salario) {
-        callback(null, salario);
-    } else {
-        callback(`El salario con id ${ id } no existe.`)
-    }
+const getSalario = (id) => {
+    return new Promise( (resolve, reject) => {
+        const salario = salarios.find( (e) => e.id === id )?.salario;
+        (salario) ?  resolve(salario) :reject(`El salario con id ${ id } no existe.`);
+    } );
 };
 
-getEmpleado(id, (err, empleado) => {
-    if(err) {
-        return console.log(err);
-    }
-    getSalario(id, (err, salario) => {
-    if (err) {
-        return console.log(`El empleado ${empleado} no tien un salario `);
-    }
-    console.log(`El empleado ${empleado} gana ${salario}.`);
-    
-} );    //  llamada getSalario()
-    
-});     // llmada a get empleado()
-
+getEmpleado(id)
+    .then( (empleado) => { 
+        emp =  empleado;
+        return getSalario(id);} ).then( (salario) => { 
+            console.log(`El empleado ${ emp } tiene un salario de ${ salario }` );})
+        .catch( (err) => { console.log(err); 
+    } );    
