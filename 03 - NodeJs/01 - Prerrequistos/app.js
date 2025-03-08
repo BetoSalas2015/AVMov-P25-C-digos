@@ -24,7 +24,7 @@ const salarios = [
     }
 ];
 
-let id = 2;
+let id = 3;
 
 const getEmpleado = (id) => {
     return promesa = new Promise( (resolve, reject) => {
@@ -47,4 +47,13 @@ getEmpleado(id)
         return getSalario(id);} ).then( (salario) => { 
             console.log(`El empleado ${ emp } tiene un salario de ${ salario }` );})
         .catch( (err) => { console.log(err); 
-    } );    
+    } ); 
+    
+const getInfoUsuario = async(id) => {
+    const empleado = await getEmpleado(id);
+    const salario = await getSalario(id);
+    return `El empleado ${ emp } tiene un salario de ${ salario }`;
+};
+
+getInfoUsuario(id).then( msg => console.log(msg)).catch( (err) => { console.log(err); });
+
