@@ -1,0 +1,24 @@
+{
+  "name": "fundamentos",
+  "version": "0.0.2",
+  "description": "Proyecto de introducción a nodeJS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "base5": "node app.js --base=5"
+  },
+  "type": "commonjs",
+  "keywords": [
+    "javascript",
+    "nodejs"
+  ],
+  "author": "Roberto Salazar Márquez",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

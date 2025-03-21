@@ -1,6 +1,6 @@
-import { writeFile } from 'node:fs'
+const fs = require('node:fs');
 
-const crearArchivo = (base = 5) => {
+const crearArchivo = (base = 5, limite = 10) => {
     const promesa = new Promise( (resolve, reject) => {
         console.log("================================");
         console.log(`         Tabla del ${base}      `);
@@ -8,12 +8,12 @@ const crearArchivo = (base = 5) => {
 
         let salida = "";
 
-        for (let index = 1; index < 10; index++) {
+        for (let index = 1; index <= limite; index++) {
             salida += `${base} * ${index} = ${ index * base}\n`;  
         }
 
         console.log(salida);
-        writeFile(`Tabla-${base}.txt`, salida, (err) => {
+        fs.writeFile(`Tabla-${base}.txt`, salida, (err) => {
             if (err) reject(err);
             resolve(`Archivo Tabla-${base}.txt creado`);
         });
@@ -21,6 +21,6 @@ const crearArchivo = (base = 5) => {
     return promesa;
 };
 
-export {
+module.exports = {
     crearArchivo
 }
