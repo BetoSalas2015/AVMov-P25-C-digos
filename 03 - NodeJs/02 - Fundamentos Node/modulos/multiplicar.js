@@ -1,10 +1,11 @@
 const fs = require('node:fs');
+const colors =  require('colors');
 
 const crearArchivo = (base = 5, limite = 10) => {
     const promesa = new Promise( (resolve, reject) => {
-        console.log("================================");
-        console.log(`         Tabla del ${base}      `);
-        console.log("================================");
+        console.log("================================".green);
+        console.log(`         Tabla del ${base}      `.green);
+        console.log("================================".green);
 
         let salida = "";
 

@@ -1,0 +1,19 @@
+{
+  "name": "apptareas",
+  "version": "0.0.1",
+  "description": "\"Aplicación consola interactiva de tareas (to-do)\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "type": "commonjs",
+  "keywords": [
+    "NodeJS",
+    "javascript"
+  ],
+  "author": "Roberto Salazar Márquez",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}
