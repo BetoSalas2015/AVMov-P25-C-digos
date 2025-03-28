@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const colors = require('colors');
+const { validate } = require('uuid');
 
 const menu = [{
     type: 'list',
@@ -7,7 +8,7 @@ const menu = [{
     message: 'Seleccione una opcion',
     choices: [{
         value: 1,
-        name: '1. Crear Tarea'
+        name: `${'1.'.green} Crear Tarea.`
     },
     {
         value: 2,
@@ -54,8 +55,24 @@ const pausa = async() => {
     }]);
 };
 
+const capturaEntrada = async(message) => {
+    respuesta = await inquirer.prompt([{
+        type: 'input',
+        name: 'resp',
+        message,
+        validate: (entada) => {
+            if( entada.length === 0)
+                return 'Entrada Inválida. Reintente';
+            else 
+                return true;
+        }
+    }]);
+    return respuesta.resp;
+};
+
 
 module.exports = {
     inquirerMenu,
-    pausa
+    pausa,
+    capturaEntrada
 }
