@@ -1,4 +1,5 @@
 const Tarea = require('./tarea');
+const colors = require('colors');
 
 class Tareas {
     constructor() {   
@@ -18,6 +19,32 @@ class Tareas {
         } );
         return listadoArr;
     }
+
+    cargaListado = (arreglo) => {        // convertir [{}] -> {{}} 
+        arreglo.forEach( (tarea) => {
+            this.listado[tarea.id] = tarea;
+        });
+    } 
+
+    imprimeTareas = () => {
+        let salida = '';
+        let contador = 1;
+        this. listadoArr.forEach((tarea) => {
+            salida = `${contador.toString().green} ${tarea.descripcion.gray} :: `;
+            if (tarea.completado) {
+                salida += `${'Completado.'.green}`;
+            } else {
+                salida += `${'Pendiente.'.red}`;
+            }
+            console.log(salida);
+            contador++;
+        });
+    }
+
+    imprimePendientesCompletadas = (tipo) => {};
+
 }
+
+
 
 module.exports = Tareas;
