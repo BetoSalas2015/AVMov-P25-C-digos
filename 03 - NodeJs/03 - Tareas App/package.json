@@ -1,6 +1,6 @@
 {
   "name": "apptareas",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "\"Aplicación consola interactiva de tareas (to-do)\"",
   "main": "app.js",
   "scripts": {

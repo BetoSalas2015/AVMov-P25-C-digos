@@ -41,7 +41,33 @@ class Tareas {
         });
     }
 
-    imprimePendientesCompletadas = (tipo) => {};
+    imprimePendientesCompletadas = (tipo) => {
+        let salida = "";
+        let contador = 1;
+        if (tipo) {
+            this.listadoArr.forEach( (tarea) => {
+                if (tarea.completado !== null) {
+                    salida += `${contador.toString().green}. ${tarea.descripcion.gray} :: ${'Completado'.green}\n`; 
+                    contador++;
+                }
+            });
+            console.log(salida);
+        } else {
+            this.listadoArr.forEach( (tarea) => {
+                if (tarea.completado === null) {
+                    salida += `${contador.toString().green}. ${tarea.descripcion.gray} :: ${'Pendiente'.red}\n`; 
+                    contador++;
+                }
+            });
+            console.log(salida);
+        }
+    };
+
+    borrarTarea = (id) => {
+        if (this.listado[id]) {
+            delete this.listado[id];
+        }
+    };
 
 }
 
