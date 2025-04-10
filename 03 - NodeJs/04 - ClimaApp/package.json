@@ -1,0 +1,21 @@
+{
+  "name": "climaapp",
+  "version": "0.1.0",
+  "description": "Aplicación de Geoposicionamiento y clima",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Javascript",
+    "REST"
+  ],
+  "author": "Roberto Salazar Márquez",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.8.4",
+    "colors": "^1.4.0",
+    "dotenv": "^16.4.7",
+    "inquirer": "^8.0.0"
+  }
+}

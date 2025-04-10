@@ -1,0 +1,7 @@
+
+URL:  https://api.mapbox.com/search/geocode/v6/forward
+?
+q=Puebla&
+proximity=ip&
+language=es&
+access_token=pk.eyJ1Ijoicm9iZXJ0b3NhbGF6YXJtYXJxdWV6IiwiYSI6ImNsMXdyejhqNTJ6bWozY3BjaTlkMHBqaTQifQ.e6d_r7x8mhfRqOKlK3QEQg

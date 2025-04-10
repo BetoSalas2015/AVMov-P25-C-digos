@@ -2,10 +2,9 @@
 
 .gitIgnore
 
-
-
 # Carpetas a ignorar en el repositorio
 Colecciones/
 Colecciones-copy/
 03 - NodeJs/02 - Fundamentos Node/node_modules/
 03 - NodeJs/03 - Tareas App/node_modules/
+03 - NodeJs/04 - ClimaApp/node_modules/
