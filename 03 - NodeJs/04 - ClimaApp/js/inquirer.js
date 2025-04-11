@@ -53,19 +53,25 @@ const capturaEntrada = async(message) => {
     return respuesta.resp;
 };
 
-const listadoTareasBorrar = async( listaTareas = []) => {
+const listadoCiudades = async( listaCiudad = []) => {
     let contador = 0;
-    const choices = listaTareas.map( (tarea) => {
+    const choices = listaCiudad.map( (ciudad) => {
         contador++;
         return {
-            value: tarea.id,
-            name: `${contador.toString().green}. ${tarea.descripcion.white}`
+            value: ciudad.id,
+            name: `${contador.toString().green}. ${ciudad.lugar.white}`,
+            lat: ciudad.lat,
+            lon: ciudad.lon
         }
     });
+    choices.unshift({
+        value: 0,
+        name: `${'0'.green}. ${'Cancelar'.yellow}`
+    })
     const respuesta = await inquirer.prompt( [{
         type: 'list',
         name: 'resp',
-        message: '¿Que tarea desea borrar?',
+        message: '¿Que ciudad desea buscar?',
         choices
     }] )
     return respuesta.resp;
@@ -102,7 +108,7 @@ module.exports = {
     inquirerMenu,
     pausa,
     capturaEntrada,
-    listadoTareasBorrar,
+    listadoCiudades,
     confirmar,
     listadoSeleccionar
 }
