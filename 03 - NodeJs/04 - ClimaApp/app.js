@@ -6,6 +6,7 @@ require('dotenv').config();
 const main = async() => {
     let resp;
     const busqueda = new Busquedas();
+    busqueda.cargaBase();
     do {
         resp = await inquirerMenu();
         switch (resp) {
@@ -13,6 +14,7 @@ const main = async() => {
                     const lugares = await busqueda.ciudad(lugar);
                     const id = await listadoCiudades(lugares);
                     const lugarSeleccionado = lugares.find( ciudad => ciudad.id === id );
+                    busqueda.guardaBúsquedas(lugarSeleccionado.lugar);
                     const clima = await busqueda.climaCiudad(lugarSeleccionado.lat,lugarSeleccionado.lon);
                     console.log(`\n${'Ciudad: '.yellow}: ${lugarSeleccionado.lugar}`);
                     console.log(`${'Latitud: '.yellow}: ${lugarSeleccionado.lat}`);
@@ -22,13 +24,21 @@ const main = async() => {
                     console.log(`${'Temperatura mínima: '.yellow}: ${clima.min}`);
                     console.log(`${'Temperatura máxima: '.yellow}: ${clima.max}`);
                     console.log(`${'Sensación térmica: '.yellow}: ${clima.real}`);
+                    
                     await pausa();
                     
 
                     break;
-            case 2: break;
+            case 2: let cont = 1;
+                    busqueda.historial.forEach((lugar) => {
+                        console.log(`${cont.toString().green}. ${lugar}`);
+                        cont++;
+                    });
+                    await pausa();
+                    break;
             
         }
+        busqueda.guardaBase();
         if (resp === 0) {
             await pausa();
         }
